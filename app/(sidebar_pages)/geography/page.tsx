@@ -1,7 +1,8 @@
-import { Header } from '@/components/common'
+import React from 'react'
 import Layout from '@/components/layout/page'
 import { Box } from '@mui/material'
-import React from 'react'
+import { Header } from '@/components'
+
 
 export default function page() {
     return (

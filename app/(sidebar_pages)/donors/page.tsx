@@ -1,4 +1,4 @@
-import { Header } from '@/components/common'
+import { Header } from '@/components'
 import Layout from '@/components/layout/page'
 import { Box } from '@mui/material'
 import React from 'react'
