@@ -2,26 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.meba-box__flex-between {
+  @apply flex justify-between items-center;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.MuiDrawer-paper {
+  @apply dark:bg-[#21295c] dark:border-[#21295c] dark:text-[#ffedc2] max-[600px]:border-2 w-[250px];
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.donations__dataGrid .MuiDataGrid-root {
+  @apply border-none;
+}
+
+.donations__dataGrid .MuiDataGrid-cell {
+  @apply border-b-0;
+}
+
+.donations__dataGrid .MuiDataGrid-columnHeaders {
+  @apply dark:bg-[#21295c] bg-[#f0f0f0] dark:text-[#fff6e0] text-[#665429] border-b-0;
+}
+
+.donations__dataGrid .MuiDataGrid-virtualScroller {
+  @apply dark:bg-[#4d547d] bg-[#e0e0e0];
+}
+
+.donations__dataGrid .MuiDataGrid-footerContainer {
+  @apply dark:bg-[#21295c] bg-[#f0f0f0] dark:text-[#fff6e0] text-[#665429] border-t-0;
+}
+
+.donations__dataGrid .MuiDataGrid-toolbarContainer .MuiButton-text {
+  @apply dark:text-[#ffedc2] text-[#0d1025];
+}
+
+.donations__dataGrid .MuiInputBase-root {
+  @apply dark:text-[#ffedc2] text-[#0d1025] m-2 bg-transparent;
+}
+
+.donations__dataGrid .MuiInputBase-root input {
+  @apply bg-transparent focus:outline-transparent;
 }
