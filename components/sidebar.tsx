@@ -94,7 +94,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }: SideProps) {
                     <Box width="100%">
 
                         <Box className="max-[641px]:my-8 max-[641px]:m-0" m="1.5rem 1.5rem 2rem 3rem">
-                            <div className="meba-box__flex-between w-full text-[#fdcd49] dark:text-[#ffe3a3] bg-opacity-80 max-sm:px-4">
+                            <div className="meba-box__flex-between w-full text-[#fdcd49] dark:text-[#fdcf6a] bg-opacity-80 max-sm:px-4">
                                 <Box display="flex" height="100%" justifyContent="center" alignItems='center' gap="2rem" >
                                     <Image src={logoImg} alt='logo' width={30} height={30} />
                                     <Typography alignItems='center' variant='h4' fontWeight="bold" >
@@ -122,9 +122,9 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }: SideProps) {
                                             router.push(`/${lcText}`)
                                             setActive(lcText)
                                         }}
-                                            className={`${active === lcText && (lcText === "dashboard" || lcText === "campaigns" || lcText === "donors" || lcText === "donations" || lcText === "geography" || lcText === "overview" || lcText === "daily" || lcText === "monthly" || lcText === "breakdown" || lcText === "admin" || lcText === "performance") ? "bg-[#ffe3a3] text-[#191f45] dark:hover:text-[#fff6e0] transition-colors ease-in-out" : "bg-transparent  text-[#191f45] dark:text-[#fff6e0]"} dark:hover:text-[#ede2c7] hover:text-[#191f45] transition-colors ease-in-out`}
+                                            className={`${active === lcText && (lcText === "dashboard" || lcText === "campaigns" || lcText === "donors" || lcText === "donations" || lcText === "geography" || lcText === "overview" || lcText === "daily" || lcText === "monthly" || lcText === "breakdown" || lcText === "admin" || lcText === "performance") ? "bg-[#ffe3a3] dark:bg-[#fdcf6a] text-[#191f45]  dark:text-[#191f45] dark:hover:text-[#fff6e0] transition-colors ease-in-out dark:hover:bg-transparent" : "bg-transparent  text-[#191f45] dark:text-[#fff6e0]"} dark:hover:text-[#ede2c7] hover:text-[#191f45] transition-colors ease-in-out`}
                                         >
-                                            <ListItemIcon className={`ml-8 ${active === lcText && (lcText === "dashboard" || lcText === "campaigns" || lcText === "donors" || lcText === "donations" || lcText === "geography" || lcText === "overview" || lcText === "daily" || lcText === "monthly" || lcText === "breakdown" || lcText === "admin" || lcText === "performance") ? "text-[#191F45] dark:group-hover:text-[#fff6e0]" : "dark:text-[#ffedc2] text-[#191f45] dark:group-hover:text-[#fff6e0] group-hover:text-[#191f45]"}`}>
+                                            <ListItemIcon className={`ml-8 ${active === lcText && (lcText === "dashboard" || lcText === "campaigns" || lcText === "donors" || lcText === "donations" || lcText === "geography" || lcText === "overview" || lcText === "daily" || lcText === "monthly" || lcText === "breakdown" || lcText === "admin" || lcText === "performance") ? "text-[#191F45] dark:group-hover:text-[#fff6e0] " : "dark:text-[#ffedc2] text-[#191f45] dark:group-hover:text-[#fff6e0] group-hover:text-[#191f45]"}`}>
                                                 {icon}
                                             </ListItemIcon>
                                             <ListItemText primary={text} />

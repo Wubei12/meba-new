@@ -1,8 +1,11 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box, Button, Card, CardActions, CardContent, Collapse, Typography, useMediaQuery } from '@mui/material'
+import { axiosInstance } from '@/app/api/axios';
+import { toast } from 'react-toastify';
+import { Spinner } from '../utils';
 
 
 interface CampaignProps {
@@ -15,7 +18,6 @@ interface CampaignProps {
     endDate: string;
     status: string;
 }
-
 
 const Campaign = ({
     title, description, category, goalAmount, currentAmount, startDate, endDate, status
@@ -69,16 +71,32 @@ const Campaign = ({
 }
 
 function CampaignList() {
+    const [campaigns, setCampaigns] = useState<CampaignProps[]>([])
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    const [error, setError] = useState('')
+
+    console.log(campaigns);
+    
+    useEffect(() => {
+        try {
+            setIsLoading(true)
+            axiosInstance.get(`/donation/campaigns`)
+            .then((res) => setCampaigns(res.data))
+            setIsLoading(false);
+        } catch (err: any) {
+            setError(err.message)
+            toast.error("Oops! There was an error.")
+        }
+}, [])
 
     const isNonMobile = useMediaQuery("(min-width: 1000px)")
 
     return (
         <div className='w-full h-full'>
-
-            {/* {data || isLoading ? <Box mt="20px" display="grid" gridTemplateColumns="repeat(4, minmax(0, 1fr))" justifyContent="space-between" rowGap="20px" columnGap="1.33%" sx={{
+            {campaigns || isLoading ? <Box mt="20px" display="grid" gridTemplateColumns="repeat(4, minmax(0, 1fr))" justifyContent="space-between" rowGap="20px" columnGap="1.33%" sx={{
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }
             }}>
-                {data?.map(
+                {campaigns?.map(
                     ({
                         title,
                         description,
@@ -105,8 +123,7 @@ function CampaignList() {
                 <div className="flex gap-3">
                     Loading <Spinner sm />
                 </div>
-            } */}
-            Campaigns
+            }
         </div>
     )
 }

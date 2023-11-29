@@ -1,18 +1,16 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+
 import { DarkModeOutlined, LightModeOutlined } from '@mui/icons-material'
 import { usePathname } from 'next/navigation'
 
 type Theme = "light" | "dark"
 
-function ThemeSwitch() {
-
+export default function ThemeSwitch() {
     const pathname = usePathname()
 
     const [theme, setTheme] = useState<Theme>("light")
-
-
     const toggleTheme = () => {
         if (theme === "light") {
             setTheme("dark")
@@ -39,12 +37,9 @@ function ThemeSwitch() {
             document.documentElement.classList.add("dark")
         }
     }, [])
-
-    return (
-        <button className={`${pathname === "/" ? "hidden" : ' z-20 fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-125 transition-all dark:bg-[#21295c]'}`} onClick={toggleTheme}>
+  return (
+        <button className={`${pathname === "/" || "/auth/login" || "/auth/regiter" ? "hidden" : ' z-20 fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem] bg-opacity-80 backdrop-blur-[0.5rem] border border-white border-opacity-40 shadow-2xl rounded-full flex items-center justify-center hover:scale-[1.15] active:scale-125 transition-all dark:bg-[#21295c]'}`} onClick={toggleTheme}>
             {theme === "light" ? <LightModeOutlined /> : <DarkModeOutlined />}
         </button>
-    )
+  )
 }
-
-export default ThemeSwitch

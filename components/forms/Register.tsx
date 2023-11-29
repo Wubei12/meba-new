@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ChangeEvent, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import bgImg6 from '@/public/images/bg-landing6.jpeg'
 import bgImg4 from '@/public/images/bg-landing4.jpeg'
 import bgImg3 from '@/public/images/bg-landing3.jpeg'
@@ -10,6 +10,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { axiosInstance } from '@/app/api/axios'
 import { useRouter } from 'next/navigation'
+import { CheckCred } from '..'
 
 export default function Register() {
   const router = useRouter();
@@ -47,6 +48,21 @@ export default function Register() {
       console.log(res.data)
     })
   }
+
+   useEffect(() => {
+      const token = localStorage.getItem("access_token")
+      console.log("🚀 ~ file: Login.tsx:63 ~ useEffect ~ token:", token)
+
+      if (token !== null) {
+        <CheckCred />
+        console.log("token !== null")
+        router.push("/dashboard")
+      } else {
+        console.log("go to login")
+        
+      }
+
+    }, [router])
   
 
   return (

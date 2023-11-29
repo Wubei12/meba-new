@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const baseURL = "https://be8d-196-188-162-35.ngrok-free.app/api/v1";
+const baseURL = "https://3434-196-188-162-64.ngrok-free.app/api/v1";
 
 export const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -21,9 +21,12 @@ axiosInstance.interceptors.response.use(
   },
   async function (error) {
     const originalRequest = error.config;
+    const serverError = "server-error";
 
     if (typeof error.response === "undefined") {
-      toast.error("A server/network error occurred. ");
+      toast.error("A server/network error occurred.", {
+        toastId: serverError,
+      });
       return Promise.reject(error);
     }
 

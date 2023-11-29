@@ -1,17 +1,16 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+import { CheckCred, Navbar, Sidebar } from '../index'
 import Image from "next/image"
 import grapeImg from "@/public/images/grape.png"
-import { CheckCred, Navbar, Sidebar, Spinner } from '..'
 import { axiosInstance } from '@/app/api/axios'
 import { AxiosError } from 'axios'
 import { useRouter } from 'next/navigation'
-import { Typography } from '@mui/material'
 import { toast } from 'react-toastify'
 
 
-type Props = {
+interface Props  {
     children: React.ReactNode;
 }
 
