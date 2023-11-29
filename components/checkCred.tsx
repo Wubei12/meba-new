@@ -4,8 +4,8 @@ import bgImg4 from '@/public/images/bg-landing4.jpeg'
 import bgImg3 from '@/public/images/bg-landing3.jpeg'
 import Image from 'next/image'
 import { Typography } from '@mui/material'
-import { Spinner } from '.'
 import { motion } from 'framer-motion'
+import { Spinner } from './utils'
 
 export default function CheckCred() {
      const containerVariants = {

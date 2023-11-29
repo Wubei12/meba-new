@@ -54,7 +54,7 @@ function HomeBody() {
                 </button>
             </Link>
             <Link href="/auth/register">
-                <button className='px-10 rounded-xl py-2 border border-[#fdcd49] text-2xl hover:bg-[#fdcd49e8] bg-[#fdcd49] text-gray-900 transition duration-200 active:scale-110'>
+                <button className='px-10 rounded-xl py-2 border border-[#fdcd49] text-2xl hover:bg-[#ffcb5c] bg-[#fdcd49] text-gray-900 transition duration-200 active:scale-110'>
                         Signup
                 </button>
             </Link>

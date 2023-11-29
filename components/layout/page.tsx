@@ -33,7 +33,9 @@ export default function Layout({ children }: Props) {
         console.log(res.data)
         setIsSuccess(true)
     }).catch((e) => {
-        toast.info("You need to Log in.")
+        toast.info("You need to Log in.", {
+            toastId: "LoginInfo"
+        })
         router.push("/auth/login")
     })
 
